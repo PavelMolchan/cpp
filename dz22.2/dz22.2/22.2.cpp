@@ -50,6 +50,7 @@ public:
 		}
 		char* temp2 = new char[k+1];
 		strncpy(temp2, temp,k);
+		temp[k] = '\0';
 		return temp;
 	}
 	
@@ -66,5 +67,7 @@ void main()
 	String C("unit");
 	String D("ui");
 	String E =C*D;
+	C.Print();
+	D.Print();
 	E.Print();
 }
