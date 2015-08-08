@@ -23,7 +23,6 @@ public:
 	}
 	Matrix(int _N) :N(_N)
 	{
-		srand(time(NULL));
 		matrix = new int*[N];
 		for (int i = 0; i < N; i++){
 			matrix[i] = new int[N];
@@ -121,6 +120,29 @@ public:
 			return Res;
 		}
 	}
+	Matrix operator*(const Matrix& m2)
+	{
+		Matrix Res(N, 0);
+		if (N != m2.N){
+			cout << "Matrix size error!!!\n";
+			return Res;
+		}
+		else{
+			for (int i = 0; i < N;i++){
+				for (int j = 0; j < N; j++){
+					for (int k = 0; k < N; k++){
+						Res.matrix[i][j] +=matrix[i][k]*m2.matrix[k][j] ;
+					}
+				}
+			}
+			return Res;
+		}
+	}
+
+	int& operator[](int n)
+	{
+
+	}
 private:
 	int N;
 	int** matrix;
@@ -128,6 +150,7 @@ private:
 
 int main()
 {
+	srand(time(NULL));
 	Matrix A;
 	A.Show();
 	Matrix B(5);
@@ -136,4 +159,11 @@ int main()
 	A.Show();
 	A = A + B;
 	A.Show();
+	Matrix C(2);
+	C.Show();
+	Matrix D(2);
+	D.Show();
+	A = C*D;
+	A.Show();
+	cout << A[1][1];
 }
