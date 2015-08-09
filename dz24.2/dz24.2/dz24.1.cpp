@@ -29,7 +29,7 @@ public:
 		}
 		for (int i = 0; i<N; i++){
 			for (int j = 0; j<N; j++){
-				matrix[i][j] = rand() % 40;
+				matrix[i][j] = rand() % 20;
 			}
 		}
 	}
@@ -139,9 +139,9 @@ public:
 		}
 	}
 
-	int& operator[](int n)
+	int& operator()(int n,int m)
 	{
-
+		return *(&matrix[n][m]);
 	}
 private:
 	int N;
@@ -165,5 +165,7 @@ int main()
 	D.Show();
 	A = C*D;
 	A.Show();
-	cout << A[1][1];
+	cout << A(0,1)<<endl<<endl;
+	A(0, 1) = 3;
+	A.Show();
 }
