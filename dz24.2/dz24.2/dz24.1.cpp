@@ -138,10 +138,19 @@ public:
 			return Res;
 		}
 	}
-
 	int& operator()(int n,int m)
 	{
 		return *(&matrix[n][m]);
+	}
+	Matrix Transp()
+	{
+		Matrix Res(N, 0);
+		for (int i = 0; i < N; i++){
+			for (int j = 0; j < N; j++){
+				Res.matrix[i][j] = matrix[j][i];
+			}
+		}
+		return Res;
 	}
 private:
 	int N;
@@ -167,5 +176,7 @@ int main()
 	A.Show();
 	cout << A(0,1)<<endl<<endl;
 	A(0, 1) = 3;
+	A.Show();
+	A=A.Transp();
 	A.Show();
 }
