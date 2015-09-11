@@ -10,7 +10,7 @@ public:
 		real = 0;
 		imag = 0;
 	}
-	Complex(int _real,int _imag):real(_real),imag(_imag){}
+	Complex(int _real, int _imag) :real(_real), imag(_imag){}
 	Complex(const Complex& num2)
 	{
 		real = num2.real;
@@ -18,9 +18,9 @@ public:
 	}
 	void Print()
 	{
-		cout<<real;
-		if (imag>0)
-			cout << "+i" << imag<<endl;
+		cout << real;
+		if (imag > 0)
+			cout << "+i" << imag << endl;
 		else if (imag < 0)
 			cout << "-i" << -1 * imag << endl;
 		else
@@ -34,14 +34,14 @@ public:
 		else
 		{
 			real = num2.real;
-			imag= num2.imag;
+			imag = num2.imag;
 			return *this;
 		}
 	}
 	Complex operator+(const Complex& num2)
 	{
 		Complex Res;
-		Res.real =real+num2.real;
+		Res.real = real + num2.real;
 		Res.imag = imag + num2.imag;
 		return Res;
 	}
@@ -62,7 +62,7 @@ public:
 	Complex operator/(const Complex& num2)
 	{
 		Complex Res;
-		Res.real = (real*num2.real+imag*num2.imag)/(num2.real*num2.real+num2.imag*num2.imag);
+		Res.real = (real*num2.real + imag*num2.imag) / (num2.real*num2.real + num2.imag*num2.imag);
 		Res.imag = (real*num2.real - imag*num2.imag) / (num2.real*num2.real + num2.imag*num2.imag);
 		return Res;
 	}
@@ -73,9 +73,9 @@ private:
 
 int main()
 {
-	Complex A(3,6);
-	A.Print();	
-	Complex B(5,4);
+	Complex A(3, 6);
+	A.Print();
+	Complex B(5, 4);
 	B.Print();
 	Complex C;
 	C = A + B;
